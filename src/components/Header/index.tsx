@@ -1,9 +1,11 @@
+import Logo from '../../assets/logo.svg'
+
 import * as S from './styles'
 
 export function Header() {
   return (
-    <S.Container>
-      <h1>Header</h1>
-    </S.Container>
+    <S.HeaderContainer>
+      <img src={Logo} alt="logo escrito github blog" />
+    </S.HeaderContainer>
   )
 }
