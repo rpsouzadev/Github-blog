@@ -25,9 +25,9 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body, input, textarea, button {
-    font-family: 'Nunito', sans-serif;
-    font-size: 1rem; 
-    font-weight: 400;
+    font: 400 ${({ theme }) =>
+      theme.textSizes['text-text-m']} 'Nunito', sans-serif;
+      line-height: 160%;
     line-height: 160%;
   }
 
