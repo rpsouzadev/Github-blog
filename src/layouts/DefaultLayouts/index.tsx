@@ -5,11 +5,11 @@ import * as S from './styles'
 
 export function DefaultLayouts() {
   return (
-    <S.Container>
+    <S.LayoutContainer>
       <Header />
       <main>
         <Outlet />
       </main>
-    </S.Container>
+    </S.LayoutContainer>
   )
 }
