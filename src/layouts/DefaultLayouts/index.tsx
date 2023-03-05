@@ -7,7 +7,9 @@ export function DefaultLayouts() {
   return (
     <S.Container>
       <Header />
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
     </S.Container>
   )
 }
