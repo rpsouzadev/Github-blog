@@ -3,6 +3,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faBuilding, faUserGroup } from '@fortawesome/free-solid-svg-icons'
 
 import * as S from './styles'
+import { LinkComponent } from '../../../../components/LinkComponent'
 
 export function Profile() {
   return (
@@ -13,7 +14,7 @@ export function Profile() {
         <header>
           <h1>Rafael Souza</h1>
 
-          <a href="#">github</a>
+          <LinkComponent text="github" href="#" />
         </header>
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem, vitae

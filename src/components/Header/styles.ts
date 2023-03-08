@@ -8,4 +8,8 @@ export const HeaderContainer = styled.div`
   align-items: center;
   justify-content: center;
   background: url(${HeaderBg}) no-repeat center;
+
+  img {
+    margin-bottom: 5rem;
+  }
 `
