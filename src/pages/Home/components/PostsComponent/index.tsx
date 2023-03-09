@@ -2,7 +2,7 @@ import * as S from './styles'
 
 export function PostsComponent() {
   return (
-    <S.PostsContainer>
+    <S.PostsContainer to="/post/1">
       <div>
         <strong>JavaScript data types and data structures</strong>
         <span>há 1 hora</span>
