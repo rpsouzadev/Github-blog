@@ -1,9 +1,10 @@
+import { PostInfo } from './components/PostInfo'
 import * as S from './styles'
 
 export function Post() {
   return (
-    <S.Container>
-      <h1>Post</h1>
-    </S.Container>
+    <>
+      <PostInfo />
+    </>
   )
 }
