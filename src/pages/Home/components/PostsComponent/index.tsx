@@ -1,19 +1,18 @@
+import { PostsProps } from '../..'
 import * as S from './styles'
 
-export function PostsComponent() {
+interface PostComponentProps {
+  post: PostsProps
+}
+
+export function PostsComponent({ post }: PostComponentProps) {
   return (
-    <S.PostsContainer to="/post/1">
+    <S.PostsContainer to={`/post/${post.number}`}>
       <div>
-        <strong>JavaScript data types and data structures</strong>
-        <span>há 1 hora</span>
+        <strong>{post.title}</strong>
+        <span>{post.created_at}</span>
       </div>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum illum
-        quaerat maiores earum placeat quod assumenda commodi, in cum numquam
-        similique repellendus inventore, quidem vitae. Impedit, tempora fuga,
-        possimus obcaecati earum explicabo iste consequatur id, voluptate dicta
-        similique rem incidunt.
-      </p>
+      <p>{post.body}</p>
     </S.PostsContainer>
   )
 }
