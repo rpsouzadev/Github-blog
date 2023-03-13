@@ -1,5 +1,5 @@
 import moment from 'moment'
 
-export function RelativeDateFormatter(date: string) {
+export function relativeDateFormatter(date: string) {
   return moment(date).fromNow()
 }
