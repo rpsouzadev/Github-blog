@@ -46,7 +46,7 @@ export function Home() {
   return (
     <>
       <Profile />
-      <SearchForm getPost={getPost} />
+      <SearchForm postsLength={posts.length} getPost={getPost} />
 
       <S.PostSectionContainer>
         {posts.map((post) => (
