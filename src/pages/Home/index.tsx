@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
+import { Spinner } from '../../components/Spinner'
 import { api } from '../../lib/axios'
 import { PostsComponent } from './components/PostsComponent'
 import { Profile } from './components/Profile'
@@ -24,35 +25,38 @@ export function Home() {
   const [posts, setPosts] = useState<PostsProps[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
-  const getPost = useCallback(
-    async (query: string = '') => {
-      try {
-        setIsLoading(true)
-        const response = await api.get(
-          `/search/issues?q=${query}%20repo:${username}/${repoName}`,
-        )
-        setPosts(response.data.items)
-      } finally {
-        setIsLoading(false)
-      }
-    },
-    [posts],
-  )
+  const getPost = useCallback(async (query: string = '') => {
+    try {
+      setIsLoading(true)
+      const response = await api.get(
+        `/search/issues?q=${query}%20repo:${username}/${repoName}`,
+      )
+      setPosts(response.data.items)
+    } finally {
+      setIsLoading(false)
+    }
+  }, [])
 
   useEffect(() => {
     getPost()
-  }, [])
+  }, [getPost])
 
   return (
     <>
       <Profile />
       <SearchForm postsLength={posts.length} getPost={getPost} />
 
-      <S.PostSectionContainer>
-        {posts.map((post) => (
-          <PostsComponent key={post.number} post={post} />
-        ))}
-      </S.PostSectionContainer>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <>
+          <S.PostSectionContainer>
+            {posts.map((post) => (
+              <PostsComponent key={post.number} post={post} />
+            ))}
+          </S.PostSectionContainer>
+        </>
+      )}
     </>
   )
 }
