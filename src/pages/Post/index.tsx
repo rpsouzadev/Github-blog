@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { PostInfo } from './components/PostInfo'
 
 import * as S from './styles'
+import { PostContent } from './components/PostContent'
 
 const username = import.meta.env.VITE_GITHUB_USERNAME
 const repoName = import.meta.env.VITE_GITHUB_REPONEME
@@ -35,6 +36,7 @@ export function Post() {
   return (
     <>
       <PostInfo isLoading={isLoading} postData={postData} />
+      {!isLoading && <PostContent content={postData.body} />}
     </>
   )
 }
