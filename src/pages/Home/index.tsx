@@ -25,21 +25,24 @@ export function Home() {
   const [posts, setPosts] = useState<PostsProps[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
-  const getPost = useCallback(async (query: string = '') => {
-    try {
-      setIsLoading(true)
-      const response = await api.get(
-        `/search/issues?q=${query}%20repo:${username}/${repoName}`,
-      )
-      setPosts(response.data.items)
-    } finally {
-      setIsLoading(false)
-    }
-  }, [])
+  const getPost = useCallback(
+    async (query: string = '') => {
+      try {
+        setIsLoading(true)
+        const response = await api.get(
+          `/search/issues?q=${query}%20repo:${username}/${repoName}`,
+        )
+        setPosts(response.data.items)
+      } finally {
+        setIsLoading(false)
+      }
+    },
+    [posts],
+  )
 
   useEffect(() => {
     getPost()
-  }, [getPost])
+  }, [])
 
   return (
     <>
